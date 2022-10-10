@@ -17,40 +17,43 @@ console.log(game(playerScore, computerScore, gamesTied));
 
 
 
+//Main Functions
 
-//computer choice function
+    //computer choice function
 function getComputerChoice(){
     const rpsArray=["rock", "paper", "scissors"];
     const randomChoice = rpsArray[Math.floor(Math.random() * rpsArray.length)];
     return randomChoice;
 } 
-//player choice function
+    //player choice function
 function getPlayerChoice(){
 let pSelection=prompt('Rock, paper, or scissors?: ');
 const playerSelection= pSelection.toLowerCase();
 return playerSelection;
 }
-//round function 
+    //round function 
 function playRound(playerChoice, computerChoice){
 if(playerChoice === computerChoice){
-let tied = "You Tied! Try again?";
-let result = tied;
-return result;
-}else if((playerChoice === 'rock' && computerChoice === 'paper') || 
-(playerChoice === 'paper' && computerChoice === 'scissors') || 
-(playerChoice === 'scissors' && computerChoice === 'rock')){
-let loss = "You Lose! " + computerChoice + " beats " + playerChoice;
-let result = loss;
-return result;
-}else if((playerChoice === 'rock' && computerChoice === 'scissors') 
-||  (playerChoice === 'paper' && computerChoice === 'rock') 
-||  (playerChoice === 'scissors' && computerChoice === 'paper')){
-let win = "You Win! " + playerChoice + " beats " + computerChoice;
-let result = win;
-return result;
+    let tied = "You Tied! Try again?";
+    let result = tied;
+    return result;
+    }
+    else if((playerChoice === 'rock' && computerChoice === 'paper') || 
+    (playerChoice === 'paper' && computerChoice === 'scissors') || 
+    playerChoice === 'scissors' && computerChoice === 'rock'){
+    let loss = "You Lose! " + computerChoice + " beats " + playerChoice;
+    let result = loss;
+    return result;
+    }
+    else if((playerChoice === 'rock' && computerChoice === 'scissors') 
+    ||  (playerChoice === 'paper' && computerChoice === 'rock') 
+    ||  (playerChoice === 'scissors' && computerChoice === 'paper')){
+    let win = "You Win! " + playerChoice + " beats " + computerChoice;
+    let result = win;
+    return result;
+    }
 }
-}
-//game function 
+    //game function 
 function game(playerScore, computerScore, gamesTied){
     for(let i = 0; i < 5 || i < 5; i++){
         const playerChoice = getPlayerChoice();
@@ -66,7 +69,8 @@ function game(playerScore, computerScore, gamesTied){
     }else{
         gamesTied++;
     }
-    }if(playerScore > computerScore){
+    }
+    if(playerScore > computerScore){
         let endResult= "You Win! Try again?";
         return {
             endResult, gamesTied, playerScore, computerScore
