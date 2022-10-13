@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="styles.css" rel="stylesheet">
-    <script src="java2.0.js" defer></script>
 </head>
 <body>
     <div class="top">
@@ -14,7 +13,7 @@
     <h2><em>Player vs Computer</em></h2>
     </div>
     <div class="midTop">
-        <h2>Make Your Choice</h2>
+        <p class="head2">Make Your Choice</p>
         <h3>First To 5 Wins!</h3>
     </div>
     <div class="middle">
@@ -22,32 +21,38 @@
             <div><p>Player</p></div>
             <div>
                 <ul class="player">
-                    <li><button class="btnRock"><img src="./images/pRock.jpg"> </button></li>
-                    <li><button class="btnPaper"><img src="./images/pPaper.jpg"> </button></li>
-                    <li><button class="btnScissors"><img src="./images/pscissors.jpg"> </button></li>
+                    <li><button id="rock" class="btn"><img id="rock" src="./images/pRock.jpg"> </button></li>
+                    <li><button id="paper" class="btn"><img id="paper" src="./images/pPaper.jpg"> </button></li>
+                    <li><button id="scissors" class="btn"><img id="scissors" src="./images/pscissors.jpg"> </button></li>
                 </ul>
             </div>   
         </div>
         <div class="mid">
-            <div class="pChoice"><p>?</p></div>
-            <div><p>VS</p></div>
-            <div class="comChoice"><p>?</p></div>
+            <div class="upper">
+                <div class="pChoice box"></div>
+                <div><p>VS</p></div>
+                <div class="comChoice box"></div>
+            </div>
+            <div class="lower">
+                <p id="Result">hjdksf</p>
+            </div>
         </div>
         <div class="right">
             <div><p>Computer</p></div>
             <div>
                 <ul class="computer">
-                    <li id="rock"><img src="./images/cRock.jpg"> </li>
-                    <li id="paper"><img src="./images/cpaper.jpg"> </li>
-                    <li id="scissors"><img src="images/cscissors.jpg">  </li>
+                    <li id="cRock"><img id="cRock" src="./images/cRock.jpg"> </li>
+                    <li id="cPaper"><img id="cPaper" src="./images/cpaper.jpg"> </li>
+                    <li id="cScissors"><img id="cScissors" src="images/cscissors.jpg">  </li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="bottom">
-        <div><p>Player Score:</p></div>
-        <div><p>Rounds Played:</p></div>
-        <div><p>Computer Score:</p></div>
-    </div>    
+        <div id="pScore"><p>Player Score: 0</p></div>
+        <div id="rndsPlayed"><p>Rounds Played: 0</p></div>
+        <div id="cScore"><p>Computer Score: 0</p></div>
+    </div>   
+    <script src="java2.0.js"></script> 
 </body>
 </html>
