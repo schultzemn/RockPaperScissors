@@ -10,16 +10,17 @@ let result='';
 
 //UI Selectors/ manipulation
 
-const buttons = document.querySelectorAll('button');
+const pButtons = document.querySelectorAll('.btn');
 const Result=document.querySelector('#Result');
 const pScore=document.querySelector('#pScore');
 const cScore=document.querySelector('#cScore');
 const rndsPlayed=document.querySelector('#rndsPlayed');
-
+const endGame=document.querySelector('.endGame');
+const end=document.querySelector('.end');
 //Main Functions
 //Gets player choice & runs playRound function
 
-buttons.forEach((button) => {
+pButtons.forEach((button) => {
     button.addEventListener('click', () => {
         playerChoice=button.id;
         computerChoice=getComputerChoice();
@@ -36,7 +37,6 @@ function getComputerChoice(){
     const randomChoice = rpsArray[Math.floor(Math.random() * rpsArray.length)];
     return randomChoice;
 } 
-
     //round function 
 function playRound(playerChoice,computerChoice){
 if(playerChoice === computerChoice){
@@ -51,7 +51,6 @@ if(playerChoice === computerChoice){
     result = loss;
     computerScore++;
     roundsPlayed++;
-   
     }
     else if((playerChoice === 'rock' && computerChoice === 'scissors') 
     ||  (playerChoice === 'paper' && computerChoice === 'rock') 
@@ -65,7 +64,7 @@ if(playerChoice === computerChoice){
     rndsPlayed.textContent=`Rounds Played: ${roundsPlayed}`;
     cScore.textContent=`Computer Score: ${computerScore}`;
     Result.textContent=result;
-
+    checkScore(playerScore, computerScore);
 }
     //image functions
 function playerImgMvr(playerChoice){
@@ -86,15 +85,42 @@ function computerImgMvr(computerChoice){
         document.getElementById('comChoice').src="./images/cScissors.jpg";
     }
 }
-//ends game/restarts game
+    //counts score/inserts restart button
 function checkScore(playerScore, computerScore){
     if(playerScore === 5){
-
+        stopPlay(playerScore, computerScore);
+        Result.classList.toggle('txt');
+        Result.textContent = "You Win!";
+       let restartButton = document.createElement('button');
+       restartButton.textContent = "Try Again?"
+       restartButton.classList.toggle('end');
+        endGame.appendChild(restartButton);
+        restartButton.addEventListener('click', () => {
+            window.location.reload();
+        });
     }else if(computerScore === 5){
-
+        stopPlay(playerScore, computerScore);
+        Result.classList.toggle('txt');
+        Result.textContent = "You Lose!";
+       let restartButton = document.createElement('button');
+       restartButton.textContent = "Try Again?"
+       restartButton.classList.toggle('end');
+       endGame.appendChild(restartButton);
+       restartButton.addEventListener('click', () => {
+        window.location.reload();
+    });
     }
+    
 }
-
+    //Disables play
+function stopPlay(playerScore, computerScore){
+    if(playerScore === 5 || computerScore === 5){
+        pButtons.forEach((button) => {
+        button.setAttribute('disabled', '');
+    });
+}
+}
+    //Restarts games
 
 
 

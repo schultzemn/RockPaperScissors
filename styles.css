@@ -90,7 +90,7 @@ h2{
     margin-top: 0;
 }
 
-button{
+.btn{
     margin-bottom: 10px;
     background-color:#a2b9bc ;
     all: unset;
@@ -125,4 +125,32 @@ li{
     color:white ;
     font-size: 24px;
     padding: 16px;
+}
+/*END GAME CSS*/
+.end{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #878f99;
+    width: 16vw;
+    height: 6vw;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
+}
+.end:hover{
+    transform: scale(1.15);
+    background-color: #b2ad7f;
+
+}
+
+.txt{
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.disable{
+    cursor: default;
+    transform: none;
 }
